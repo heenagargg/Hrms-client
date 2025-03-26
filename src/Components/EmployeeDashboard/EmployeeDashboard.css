@@ -1,0 +1,73 @@
+.em-dash-container{
+    min-height: 100vh;
+    width: 100%;
+    border: 1px solid;
+}
+.em-sidebar{
+    width: 300px;
+    position: fixed;
+    height: 100vh;
+    background-color: rgb(246, 246, 246);
+    /* padding: 20px 20px; */
+    box-shadow: 0px 2px 6px #ccc;
+    text-align: center;
+}
+.em-nav-container{
+    background-color: var(--primary-color);
+    height: 145px;
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    position: absolute;
+    width: calc(100% - 300px);
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+}
+.em-wlcm-div{
+    font-family: "Dancing_Script";
+    font-size: 46px;
+    font-weight: 900;
+    /* border: 1px solid; */
+    padding: 8px;
+}
+.em-dash-div{
+    padding-top: 165px;
+    padding-left: 320px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    border: 1px solid;
+}
+.att-pie-container{
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+.mark-attendance-div{
+    height: 300px;
+    width: 50%;
+    box-shadow: 0px 0px 6px #ccc;
+    border-radius: 10px;
+    padding: 20px;
+}
+.mark-attendance-div h2{
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+.employee-pie-chart-div{
+    height: 300px;
+    width: 50%;
+    box-shadow: 0px 0px 6px #ccc;
+    border-radius: 10px;
+    padding: 20px;
+}
+.employee-pie-chart-div h2{
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}

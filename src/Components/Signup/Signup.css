@@ -1,0 +1,252 @@
+.signup-page-container{
+    height: 100%;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.signup-image-div{
+    width: 50%;
+}
+.signup-image-div img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.signup-form-container{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.signup-form-div{
+    /* border: 1px solid; */
+    width: 80%;
+    padding: 30px 20px;
+}
+.signup-title{
+    text-align: center;
+    font-size: 20px;
+}
+.signup-title h1{
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    cursor: default;
+}
+.signup-form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* border: 1px solid ; */
+}
+.name-email-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+.name-div{
+    width: 50%;
+    position: relative;
+}
+.error-text{
+    position: absolute;
+    color: crimson;
+    font-size: 10px;
+    bottom: -13px;
+    left: 10px;
+    white-space: nowrap;
+    font-weight: 500;
+}
+.pass-error-text{
+    position: absolute;
+    color: crimson;
+    font-size: 10px;
+    bottom: -40x;
+    left: 10px;
+    width: 100%;
+    /* white-space: nowrap; */
+    font-weight: 500;
+}
+.name-div input,.email-div input{
+    padding: var(--input-field-padding);
+    width: 100%;
+    outline: none;
+    border-radius: var(--input-field-border-radius);
+    border: var(--input-field-border);
+    color:var(--theme-black);
+}
+.name-div input::placeholder,.email-div input::placeholder{
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: var(--input-placeholder-color);
+}
+.email-div{
+    width: 50%;
+    position: relative;
+}
+.contact-div-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+.contact-div{
+    width: 50%;
+    position: relative;
+}
+.contact-div input{
+    padding: var(--input-field-padding);
+    width: 100%;
+    outline: none;
+    border-radius: var(--input-field-border-radius);
+    border: var(--input-field-border);
+    color:var(--theme-black);
+}
+.contact-div input::placeholder{
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: var(--input-placeholder-color);
+}
+.address-div{
+    width: 100%;
+    position: relative;
+}
+.address-div input{
+    padding: var(--input-field-padding);
+    width: 100%;
+    outline: none;
+    border-radius: var(--input-field-border-radius);
+    border: var(--input-field-border);
+    color:var(--theme-black);
+}
+.address-div input::placeholder{
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: var(--input-placeholder-color);
+}
+.role-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+.role-div{
+    width: 33%;
+    position: relative;
+}
+.role-div select{
+    padding: var(--input-field-padding);
+    width: 100%;
+    outline: none;
+    border-radius: var(--input-field-border-radius);
+    outline: var(--input-field-border);
+    border: none;
+    border-right: 8px solid transparent;
+    color:var(--theme-black);
+    cursor: pointer;
+
+}
+.team-div{
+    width: 33%;
+    position: relative;
+}
+.team-div input{
+    padding: var(--input-field-padding);
+    width: 100%;
+    outline: none;
+    border-radius: var(--input-field-border-radius);
+    border: var(--input-field-border);
+    color:var(--theme-black);
+}
+.team-div input::placeholder{
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: var(--input-placeholder-color);
+}
+.designation-div{
+    width: 33%;
+    position: relative;
+}
+.designation-div input{
+    padding: var(--input-field-padding);
+    width: 100%;
+    outline: none;
+    border-radius: var(--input-field-border-radius);
+    border: var(--input-field-border);
+    color:var(--theme-black);
+}
+.designation-div input::placeholder{
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: var(--input-placeholder-color);
+}
+.password-div-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+.password-div{
+    width: 50%;
+    position: relative;
+  
+}
+.password-div input{
+    padding: var(--input-field-padding);
+    width: 100%;
+    outline: none;
+    border-radius: var(--input-field-border-radius);
+    border: var(--input-field-border);
+    color:var(--theme-black);
+
+}
+.pass-hidden{
+    color: #a4a4a4;
+}
+.eye-icon{
+    position: absolute;
+    right: 12px;
+    top:12px;
+    cursor: pointer;
+}
+
+.password-div input::placeholder{
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: var(--input-placeholder-color);
+}
+.signup-form button{
+    padding: var(--input-field-padding);
+    border-radius: var(--input-field-border-radius);
+    border: none;
+    background-color: var(--primary-color);
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    cursor: pointer;
+    position: relative;
+    min-height: 37.6px;
+}
+.signup-form button.disabled-btn{
+    cursor: not-allowed;
+}
+.loading-img{
+    position: absolute;
+    top: 8px;
+}
+.signup-info-div{
+    text-align: center;
+    margin-top: 12px;
+    font-size: 14px;
+}
+.login-link{
+    color: rgb(9, 76, 171);
+    font-weight: 600;
+    cursor: pointer;
+}

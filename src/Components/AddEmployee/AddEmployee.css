@@ -1,0 +1,223 @@
+.add-emp-dash-div{
+    padding-top: 165px;
+    padding-left: 320px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    height: 99vh;
+}
+.add-emp-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid; */
+    height: 100%;
+}
+.add-emp-container .back-btn{
+   
+    width: 100%;
+    margin-top: -30px;
+   
+}
+.back-btn-div{
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    width: fit-content;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: rgb(246, 246, 246);
+}
+.back-btn-div:hover{
+    background-color: rgb(221, 221, 221);
+}
+.add-emp-title{
+    text-align: center;
+    font-size: 14px;
+}
+.add-emp-title h1{
+    font-weight: 500;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+    cursor: default;
+}
+.add-emp-description h1{
+    font-weight: 400;
+    text-transform: capitalize;
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 0.5px;
+}
+.add-emp-form{
+    width: 36%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    /* border: 1px solid ; */
+}
+.add-emp-form .name-div{
+    width: 100%;
+    position: relative;
+}
+.error-text{
+    position: absolute;
+    color: crimson;
+    font-size: 10px;
+    bottom: -13px;
+    left: 10px;
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+.add-emp-form .name-div input,.add-emp-form .email-div input{
+    padding: var(--input-field-padding);
+    width: 100%;
+    outline: none;
+    border-radius: var(--input-field-border-radius);
+    border: var(--input-field-border);
+    color:var(--theme-black);
+}
+.add-emp-form .name-div input::placeholder,.add-emp-form .email-div input::placeholder{
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: var(--input-placeholder-color);
+}
+.add-emp-form .email-div{
+    width: 100%;
+    position: relative;
+}
+
+.add-emp-form .role-div{
+    width: 100%;
+    position: relative;
+}
+.add-emp-form .role-div select{
+    padding: var(--input-field-padding);
+    width: 100%;
+    outline: none;
+    border-radius: var(--input-field-border-radius);
+    outline: var(--input-field-border);
+    border: none;
+    border-right: 8px solid transparent;
+    color:var(--theme-black);
+    cursor: pointer;
+
+}
+.add-emp-form .team-div{
+    width: 100%;
+    position: relative;
+}
+.add-emp-form .team-div input{
+    padding: var(--input-field-padding);
+    width: 100%;
+    outline: none;
+    border-radius: var(--input-field-border-radius);
+    border: var(--input-field-border);
+    color:var(--theme-black);
+}
+.add-emp-form .team-div input::placeholder{
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: var(--input-placeholder-color);
+}
+.add-emp-form .designation-div{
+    width: 100%;
+    position: relative;
+}
+.add-emp-form .designation-div input{
+    padding: var(--input-field-padding);
+    width: 100%;
+    outline: none;
+    border-radius: var(--input-field-border-radius);
+    border: var(--input-field-border);
+    color:var(--theme-black);
+}
+.add-emp-form .designation-div input::placeholder{
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: var(--input-placeholder-color);
+}
+
+.add-emp-form button{
+    padding: var(--input-field-padding);
+    border-radius: var(--input-field-border-radius);
+    border: none;
+    background-color: var(--primary-color);
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-top: 8px;
+    cursor: pointer;
+    position: relative;
+    min-height: 37.6px;
+    width: 100%;
+}
+.signup-form button.disabled-btn{
+    cursor: not-allowed;
+}
+.loading-img{
+    position: absolute;
+    top: 8px;
+}
+.signup-info-div{
+    text-align: center;
+    margin-top: 12px;
+    font-size: 14px;
+}
+.login-link{
+    color: rgb(9, 76, 171);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+.add-emp-pop-msg{
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+.add-emp-btns{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.add-emp-btns button{
+    padding: 6px 12px;
+    border-radius: 6px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.confirm-btn{
+    background-color:#ffc813d4 ;
+    position: relative;
+    min-height: 29px;
+    min-width: 46px;
+}
+.confirm-btn:hover{
+    background-color: var(--primary-color);
+}
+.cancel-btn{
+    background-color: #cccccc8a;
+}
+.cancel-btn:hover{
+    background-color: #ccc;
+}
+.confirm-btn.disabled-btn{
+    cursor: not-allowed;
+}
+.loading-image{
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+}

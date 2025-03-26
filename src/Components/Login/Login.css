@@ -1,0 +1,268 @@
+.login-page-container{
+    height: 100%;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+/* .login-image-div{
+    width: 45%;
+} */
+ /* Image Slider Container */
+.login-image-div {
+    width: 45%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Slider Styling */
+  .slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Hide all images initially */
+  .slide {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    position: absolute;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  /* Show active image */
+  .slide.active {
+    opacity: 1;
+  }
+  
+  /* Dots Indicator */
+  .dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+  }
+  
+  .active-dot {
+    background-color: #fff;
+    width: 12px;
+    height: 12px;
+  }
+  
+.login-image-div img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.login-form-container{
+    width: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.login-form-div{
+    /* border: 1px solid; */
+    width: 50%;
+    padding: 30px 20px;
+}
+.login-logo-div{
+    text-align: center;
+    margin-bottom: 40px;
+}
+.login-logo-div img{
+    /* height: 100%;
+    width: 100%; */
+    object-fit: cover;
+}
+.login-title{
+    text-align: center;
+    font-size: 8px;
+}
+.login-title h1{
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+.login-description{
+
+}
+.login-description h1{
+    font-weight: 400;
+    text-transform: capitalize;
+    font-size: 11px;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+.login-form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    /* border: 1px solid ; */
+}
+.login-email-div{
+    width: 100%;
+    position: relative;
+}
+.errors-text{
+    position: absolute;
+    color: crimson;
+    font-size: 9px;
+    bottom: -11px;
+    left: 10px;
+    /* white-space: nowrap; */
+    font-weight: 500;
+}
+.pass-errors-text{
+    position: absolute;
+    color: crimson;
+    font-size: 9px;
+    left: 10px;
+    bottom: -22px;
+    width: 100%;
+    /* white-space: nowrap; */
+    font-weight: 500;
+}
+.login-email-div input{
+    padding: var(--input-field-padding);
+    width: 100%;
+    outline: none;
+    border-radius: var(--input-field-border-radius);
+    border: var(--input-field-border);
+    color:var(--theme-black);
+}
+.login-email-div input::placeholder{
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: var(--input-placeholder-color);
+}
+
+.login-password-div{
+    width: 100%;
+    position: relative;
+  
+}
+.login-password-div input{
+    padding: var(--input-field-padding);
+    width: 100%;
+    outline: none;
+    border-radius: var(--input-field-border-radius);
+    border: var(--input-field-border);
+    color:var(--theme-black);
+
+}
+.pass-hidden{
+    color: #a4a4a4;
+}
+.eye-icon{
+    position: absolute;
+    right: 12px;
+    top:12px;
+    cursor: pointer;
+}
+
+.login-password-div input::placeholder{
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: var(--input-placeholder-color);
+}
+.remember-container{
+    width: 96%;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    margin: auto;
+    /* margin-top: 10px; */
+}
+.remember-div{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  
+}
+.remember-div input{
+    cursor: pointer;
+}
+.remember-div input[type='radio']{
+    accent-color: var(--primary-color);
+    outline: none;
+}
+.remember-div span{
+    font-size: 12px;
+}
+.forgot-pass-div{
+    font-size: 12px;
+    cursor: pointer;
+    color: blue;
+}
+.forgot-pass-div:hover{
+    text-decoration: underline;
+    color: blue;
+}
+
+.login-form button{
+    padding: var(--input-field-padding);
+    border-radius: var(--input-field-border-radius);
+    border: none;
+    background-color: var(--primary-color);
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-top: -8px;
+    min-height: 37.6px;
+}
+.login-info-div{
+    text-align: center;
+    margin-top: 12px;
+    font-size: 14px;
+}
+.login-link{
+    color: rgb(9, 76, 171);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+.swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+  
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
