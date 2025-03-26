@@ -18,7 +18,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { useForm } from "react-hook-form";
-import axios from 'axios'
+import axios from "axios";
 import { toast } from "react-toastify";
 import loading from "../../assets/Rolling@1x-1.0s-200px-200px.gif";
 const Login = () => {
@@ -29,8 +29,8 @@ const Login = () => {
     password: "",
   });
   const [currentImage, setCurrentImage] = useState(0);
-  const [userData,setUserData]=useState()
-   const [isbuttonLoading, setIsButtonLoading] = useState(null);
+  const [userData, setUserData] = useState();
+  const [isbuttonLoading, setIsButtonLoading] = useState(null);
   const {
     register,
     handleSubmit,
@@ -38,48 +38,55 @@ const Login = () => {
     getValues,
   } = useForm({ mode: "all" });
 
-  const submitData = async(data) => {
+  const submitData = async (data) => {
     console.log(data);
-    setIsButtonLoading(true)
+    setIsButtonLoading(true);
     try {
-      const response=await axios.post("http://localhost:5070/hrms/auth/login",{
-        email:data.email,
-        password:data.password
-      })
+      const response = await axios.post(
+        "http://localhost:5070/hrms/auth/login",
+        {
+          email: data.email,
+          password: data.password,
+        }
+      );
       if (response.data.success) {
         toast.success(response.data.message);
         localStorage.setItem("authToken", response.data.data.token);
-        localStorage.setItem("user", JSON.stringify({
-          fullName: response.data.data.fullName,
-          role: response.data.data.role,
-          teamName: response.data.data.teamName,
-          designation: response.data.data.designation,
-        }));
-        setUserData(response.data.data); 
-        if(response.data.data.role==="Employee"){
-          navigate('/employee-dashboard')
+        localStorage.setItem(
+          "user",
+          JSON.stringify({
+            fullName: response.data.data.fullName,
+            role: response.data.data.role,
+            teamName: response.data.data.teamName,
+            designation: response.data.data.designation,
+          })
+        );
+        setUserData(response.data.data);
+        if (response.data.data.role === "Employee") {
+          navigate("/employee-dashboard");
         }
-        if(response.data.data.role==="Manager"){
-          navigate('/employee-dashboard')
+        if (response.data.data.role === "Manager") {
+          navigate("/employee-dashboard");
         }
-        if(response.data.data.role==="HR"){
-          navigate("/hr-dashboard")
+        if (response.data.data.role === "HR") {
+          navigate("/hr-dashboard");
         }
-        // navigate("/dashboard"); 
+        // navigate("/dashboard");
       }
     } catch (error) {
       console.error("Error during login:", error);
       if (error.response) {
-        toast.error(error.response.data.message || "Login failed. Please try again.");
+        toast.error(
+          error.response.data.message || "Login failed. Please try again."
+        );
       } else if (error.request) {
         toast.error("Network error. Please check your connection.");
       } else {
         toast.error("An unexpected error occurred. Please try again.");
       }
-    }finally{
-      setIsButtonLoading(false)
+    } finally {
+      setIsButtonLoading(false);
     }
-
   };
   return (
     <div className="login-page-container">
@@ -202,13 +209,18 @@ const Login = () => {
                 Forgot Password?
               </div>
             </div>
-            <button   className={`${
+            <button
+              className={`${
                 isbuttonLoading ? "disabled-btn" : ""
-              } confirm-btn `}>  {isbuttonLoading ? (
-                            <img className="loading-image" src={loading} alt="loading..." />
-                          ) : (
-                            <p>Login </p>
-                          )}</button>
+              } confirm-btn `}
+            >
+              {" "}
+              {isbuttonLoading ? (
+                <img className="loading-image" src={loading} alt="loading..." />
+              ) : (
+                <p>Login </p>
+              )}
+            </button>
           </form>
         </div>
       </div>

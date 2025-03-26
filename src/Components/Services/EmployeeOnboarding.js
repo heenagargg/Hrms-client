@@ -4,7 +4,7 @@ const API_BASE_URL="http://localhost:5070/hrms"
 export const addNewEmployee=async(newEmployeeData)=>{
     console.log("first",newEmployeeData)
     try {
-        const response=await axios.post(`${API_BASE_URL}/auth/addNewEmployee`,{
+        const response=await axios.post(`${API_BASE_URL}/hr/addNewEmployee`,{
             fullName:newEmployeeData.fullName,
             email:newEmployeeData.email,
             role:newEmployeeData.role,

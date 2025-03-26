@@ -3,23 +3,25 @@ import "./Otp.css";
 import "../../App.css";
 import "../../index.css";
 import Bg2 from "../../assets/cherrydeck-rMILC1PIwM0-unsplash.jpg";
-import Bg1 from '../../assets/signup-bg.jpg'
-import Bg3 from '../../assets/krakenimages-Y5bvRlcCx8k-unsplash.jpg'
-import Bg4 from '../../assets/annie-spratt-MChSQHxGZrQ-unsplash.jpg'
+import Bg1 from "../../assets/signup-bg.jpg";
+import Bg3 from "../../assets/krakenimages-Y5bvRlcCx8k-unsplash.jpg";
+import Bg4 from "../../assets/annie-spratt-MChSQHxGZrQ-unsplash.jpg";
 import { useNavigate } from "react-router";
 import CompanyLogo from "../../assets/svg-image-1.svg";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import axios from "axios";
+import { toast } from "react-toastify";
+import loading from "../../assets/Rolling@1x-1.0s-200px-200px.gif";
 const Otp = ({ length = 6 }) => {
   const navigate = useNavigate();
   const [otp, setOtp] = useState(Array(length).fill(""));
   const inputs = useRef([]);
-
-  const [currentImage, setCurrentImage] = useState(0);
+  const [isbuttonLoading, setIsButtonLoading] = useState(null);
 
   const handleChange = (e, index) => {
     const { value } = e.target;
@@ -62,59 +64,100 @@ const Otp = ({ length = 6 }) => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    setIsButtonLoading(true)
     e.preventDefault();
-    // console.log(formValues);
+    try {
+      const formattedOtp = Number(otp.toString().replaceAll(",", ""));
+      const otpToken = localStorage.getItem("otpToken");
+      if (!otpToken) {
+        toast.error("OTP token not found. Please request a new OTP.");
+        return;
+      }
+      const response = await axios.post(
+        "http://localhost:5070/hrms/auth/verifyOTP",
+        {
+          otpToken: otpToken,
+          otp: formattedOtp,
+        }
+      );
+      if (response.data.success) {
+        localStorage.setItem("resetToken", response.data.data.resetToken);
+        localStorage.removeItem("otpToken");
+        toast.success(response.data.message);
+        navigate('/reset-password')
+
+      }
+    } catch (error) {
+      if (error.response) {
+        toast.error(error.response.data.message || "Verification failed.");
+      } else if (error.request) {
+        toast.error("No response from the server. Please try again.");
+      } else {
+        toast.error("An error occurred. Please try again.");
+      }
+      console.error("Error:", error);
+    }finally{
+      setIsButtonLoading(false)
+    }
   };
 
-//   useEffect(() => {
-//     const interval = setInterval(() => {
-//       setCurrentImage((prevIndex) => (prevIndex + 1) % images.length);
-//     }, 3000);
-//     return () => clearInterval(interval);
-//   }, []);
+  const handleResendOtp=async()=>{
+    try {
+      const otpToken= localStorage.getItem("otpToken")
+      if (!otpToken) {
+        toast.error("OTP token not found. Please request a new OTP.");
+        return;
+      }
+      const response =await axios.post("http://localhost:5070/hrms/auth/resendOTP",{
+        otpToken:otpToken
+      })
+      if (response.data.success) {
+        toast.success(response.data.message);
+        console.log("OTP Resent Successfully:", response.data);
+      }
+    } catch (error) {
+      if (error.response) {
+        toast.error(error.response.data.message || "Failed to resend OTP.");
+      } else if (error.request) {
+        toast.error("No response from the server. Please try again.");
+      } else {
+        toast.error("An error occurred. Please try again.");
+      }
+      console.error("Error Resending OTP:", error);
+    }
+  }
+
   return (
     <div className="otp-page-container">
       <div className="otp-image-div">
-        {/* <img src={SignupBg} alt="bg" /> */}
-        {/* <div className="slider">
-          {images.map((img, index) => (
-            <img
-              key={index}
-              src={img}
-              alt={`Slide ${index + 1}`}
-              className={`slide ${index === currentImage ? "active" : ""}`}
-            />
-          ))}
-    
-          <div className="dots">
-            {images.map((_, index) => (
-              <span
-                key={index}
-                className={`dot ${index === currentImage ? "active-dot" : ""}`}
-              ></span>
-            ))}
-          </div>
-        </div> */}
-          <Swiper
-        spaceBetween={30}
-        centeredSlides={true}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
-      >
-         <SwiperSlide><img src={Bg1} alt="42Works"/></SwiperSlide>
-                <SwiperSlide><img src={Bg2} alt="42Works"/></SwiperSlide>
-                <SwiperSlide><img src={Bg3} alt="42Works"/></SwiperSlide>
-                <SwiperSlide><img src={Bg4} alt="42Works"/></SwiperSlide>
-      </Swiper>
+        <Swiper
+          spaceBetween={30}
+          centeredSlides={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          pagination={{
+            clickable: true,
+          }}
+          navigation={true}
+          modules={[Autoplay, Pagination, Navigation]}
+          className="mySwiper"
+        >
+          <SwiperSlide>
+            <img src={Bg1} alt="42Works" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src={Bg2} alt="42Works" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src={Bg3} alt="42Works" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src={Bg4} alt="42Works" />
+          </SwiperSlide>
+        </Swiper>
       </div>
       <div className="otp-form-container">
         <div className="otp-form-div">
@@ -145,9 +188,20 @@ const Otp = ({ length = 6 }) => {
               </div>
             </div>
             <div className="resend-otp-div">
-              Didn't receive?<span>Resend</span>{" "}
+              Didn't receive?<span onClick={()=>handleResendOtp()}>Resend</span>{" "}
             </div>
-            <button onClick={() => navigate("/reset-password")}>Send</button>
+            <button
+              className={`${
+                isbuttonLoading ? "disabled-btn" : ""
+              } confirm-btn `}
+            >
+              {" "}
+              {isbuttonLoading ? (
+                <img className="loading-image" src={loading} alt="loading..." />
+              ) : (
+                <p>Verify OTP </p>
+              )}
+            </button>
           </form>
         </div>
       </div>
