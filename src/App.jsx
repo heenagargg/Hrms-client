@@ -12,6 +12,7 @@ import HrDashboard from './Components/HrDashboard/HrDashboard'
 import ManageEmployess from './Components/ManageEmplyees/ManageEmployess'
 import AddEmployee from './Components/AddEmployee/AddEmployee'
 import VerifyEmail from './Components/verifyEmail/verifyEmail'
+import UpdateProfile from './Components/UpdateProfile/UpdateProfile'
 const App = () => {
   return (
     <div>
@@ -23,11 +24,12 @@ const App = () => {
         <Route path='/otp' element={<Otp/>}/>
         <Route path='/reset-password' element={<ResetPassword/>}/>
         <Route path='/verification' element={<EmailVerify  />}/>
-        <Route path='/employee-dashboard' element={<EmployeeDashboard  />}/>
         <Route path='/hr-dashboard' element={<HrDashboard  />}/>
         <Route path='/manage-employees' element={<ManageEmployess  />}/>
         <Route path='/add-employee' element={<AddEmployee/>}/>
         <Route path='/verify-email' element={<VerifyEmail/>}/>
+        <Route path='/employee-dashboard' element={<EmployeeDashboard  />}/>
+        <Route path='/update-profile' element={<UpdateProfile/>}/>
       </Routes>
       <ToastContainer style={{fontSize:'14px'}}/>
       </BrowserRouter>

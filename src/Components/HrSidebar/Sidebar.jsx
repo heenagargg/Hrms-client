@@ -13,7 +13,7 @@ const Sidebar = () => {
       </div>
       <div className="em-sidebar-list-div">
         <ul>
-          <li>Dashboard</li>
+          <li onClick={()=>navigate('/hr-dashboard')}>Dashboard</li>
           <li onClick={()=>navigate('/manage-employees')} >Manage Employess</li>
           <li>Leave</li>
           <li>Post Announcements</li>

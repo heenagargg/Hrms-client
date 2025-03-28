@@ -45,6 +45,7 @@
     border-radius: 6px;
     cursor: pointer;
     font-size: 14px;
+    border: 1px solid #ccc;
     font-weight: 500;
 }
 .add-emp-btn-div:hover{
@@ -59,16 +60,19 @@
 .mng-emp-list-container .title{
     padding: 18px 18px;
     background-color: rgb(246, 246, 246);
-    border: 1px solid #ccc;
+    border: 1px solid #ebebeb;
     border-bottom: transparent;
     font-size: 18px;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
-table,th,td{
-    border: 1px solid #ccc;
+table{
+    border: 1px solid #ebebeb;
     border-collapse: collapse;
+}
+td,th{
+    border-bottom: 1px solid #ebebeb;
 }
 th{
     padding: 20px 18px;
@@ -80,7 +84,7 @@ th{
     text-align: left;
 }
 td{
-    padding: 10px 18px;
+    padding: 12px 18px;
     background-color: rgba(246, 246, 246, 0.303);
 }
 .mng-emp-list-container table{
@@ -89,4 +93,43 @@ td{
 }
 .mng-emp-list-container table thead tr th{
     width: 1%;
+}
+.view-profile-btn-div{
+    text-align: center;
+}
+.view-profile-btn-div button{
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+    background-color: var(--primary-color);
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+}
+.action-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    text-align: center;
+}
+.action-div button{
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: none;
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+}
+.action-div button:first-child{
+    background-color: #28a745;
+    color: white;
+}
+.action-div button:last-child{
+    background-color: #dc3545;
+    color: #fff;
 }

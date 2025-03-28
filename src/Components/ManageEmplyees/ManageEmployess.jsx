@@ -5,6 +5,8 @@ import './ManageEmployess.css'
 import '../../index.css'
 import { useNavigate } from "react-router";
 import Sidebar from '../HrSidebar/Sidebar';
+import { MdEdit } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
 const ManageEmployess = () => {
   const navigate=useNavigate()
   return (
@@ -16,9 +18,9 @@ const ManageEmployess = () => {
       <div className="mng-emp-dash-div">
         <div className="mng-emp-container">
           <div className="back-btn">
-            <div className="back-btn-div">
+            <div className="back-btn-div"  onClick={()=>navigate('/hr-dashboard')}>
               <IoMdArrowRoundBack />
-              <div>back</div>
+              <div >back</div>
             </div>
             <div className="add-emp-btn-div">
               <div onClick={()=>navigate('/add-employee')}>Add new employee</div>
@@ -32,40 +34,58 @@ const ManageEmployess = () => {
            <thead>
             <tr>
               <th> Full Name</th>
-              <th>Date of Joining </th>
               <th> Team Name</th>
-              <th>Status </th>
-              <th>Action </th>
+              <th>Designation</th>
+              <th>Date of Joining </th>
+              <th style={{textAlign:'center'}}>Profile </th>
+              <th style={{textAlign:"center"}}>Action </th>
             </tr>
            </thead>
            <tbody>
             <tr>
-              <td>ABc</td>
-              <td>25 Dec</td>
-              <td> BAckend</td>
-              <td>No</td>
-              <td>view/Edit /Delete</td>
+              <td>Heena</td>
+              <td> Backend</td>
+              <td>Trainee</td>
+              <td>26/12/2024</td>
+              <td className="view-profile-btn-div"><button>view Profile</button></td>
+              <td className="action-div">
+              <button><MdEdit size={16}/></button>
+              <button> <MdDelete size={16} /></button>
+              </td>
+              
             </tr>
             <tr>
-              <td>ABc</td>
-              <td>25 Dec</td>
-              <td> BAckend</td>
-              <td>No</td>
-              <td>view/Edit /Delete</td>
+              <td>Test</td>
+              <td> Frontend</td>
+              <td>Developer</td>
+              <td>19 Aug 2024</td>
+              <td className="view-profile-btn-div"><button>view Profile</button></td>
+              <td className="action-div">
+              <button><MdEdit size={16}/></button>
+              <button> <MdDelete size={16} /></button>
+              </td>
             </tr>
             <tr>
-              <td>ABc</td>
-              <td>25 Dec</td>
-              <td> BAckend</td>
-              <td>No</td>
-              <td>view/Edit /Delete</td>
+              <td>Test2</td>
+              <td> Backend</td>
+              <td>QA</td>
+              <td>20 Sep</td>
+              <td className="view-profile-btn-div"><button>view Profile</button></td>
+              <td className="action-div">
+              <button><MdEdit size={16}/></button>
+              <button> <MdDelete size={16} /></button>
+              </td>
             </tr>
             <tr>
-              <td>ABc</td>
-              <td>25 Dec</td>
-              <td> BAckend</td>
-              <td>No</td>
-              <td>view/Edit /Delete</td>
+              <td>xyz</td>
+              <td>SEO</td>
+              <td>Manger</td>
+              <td>8 July</td>
+              <td className="view-profile-btn-div"><button>view Profile</button></td>
+              <td className="action-div">
+              <button><MdEdit size={16}/></button>
+              <button> <MdDelete size={16} /></button>
+              </td>
             </tr>
            </tbody>
             </table>
